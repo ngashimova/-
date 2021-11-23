@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Экзамен</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+    function showById(id, visible) {
+      document.getElementById(id).style.display =
+        visible ? 'block' : 'none'
+    }
+    function processForm(f) {
+      var i, s = '', el
+      var questions = new Object()
+      var answers = new Object()
+      for (i = 0; i < f.length; i++) {
+        el = f.elements[i]
+        if (el.type == 'radio' && el.name.indexOf('question') == 0) {
+          questions[el.name] = 0
+          if (el.checked)
+            answers[el.name] = parseInt(el.value)
+        }
+      }
+      var asked = 0, answered = 0, score = 0
+      for (i in questions) asked++
+      for (i in answers) {
+        answered++
+        score += answers[i]
+      }
+      if (answered < asked) {
+        alert('Вы ответили на ' + answered + ' вопросов из ' + asked + '. Для получения достоверного результата нужно ответить на все воросы')
+      }
+      else {
+        showById('questionsForm', false)
+        el = document.getElementById('score')
+        el.innerHTML = (score > 0) ? ' ' + score : score
+        showById('results', true)
+        if (score == 0)
+          showById('1', true)
+        else if (score == 1)
+          showById('2', true)
+        else if (score == 2)
+          showById('2', true)
+        else if (score == 3)
+          showById('3', true)
+        else if (score == 4)
+          showById('4', true)
+        else if (score == 5)
+          showById('5', true)
+
+      }
+    }
+    function resetTest() {
+      showById('results', false)
+      showById('questionsForm', true)
+      document.forms['opros'].reset()
+    }
+  </script>
+</head>
+
+<body>
+  <!---------------------------------------------------------------------------------------------------------->
+  <header class="header">
+    <div class="navbar">
+      <a href="index.html" class="logo">Дистанционное обучение</a>
+      <div class="navbar-contacts">
+        <!--номер телефона-->
+        <span class="navbar-text">Закажите звонок: </span>
+        <a class="navbar-phone" href="tel:+78431234567">8 (843) 123-45-67</a>
+      </div>
+    </div>
+  </header>
+  <!------------------------------------------------------------------------------------------------------------------------------>
+
+  <main class="main">
+
+
+    <div class="main-info">
+      <h2 class="main-title">Экзамен</h2>
+      <div class="counter-group">
+        <p>После прохождения всех лекций Вас ждет экзамен!</p>
+        <!--ФОРМА--------------------------------------------------------------->
+
+
+        <div id="questionsForm">
+          <form name="opros">
+
+
+
+
+            <!--ЗАДАНИЕ 1--------------------------------------------------------------->
+            <fieldset class="fieldset1">
+              <p>Ознакомьтесь внимательно с заданием и выберите верный вариант</p>
+              <p class="counter-group-ul">Задание 1. Выберите один неправильный ответ.
+                <br>
+                Библиотека STL содержит:
+              </p>
+              <div class="form">
+                <label>
+                  <input type="radio" name="question1" value="0" id="q1a1">контейнер
+                </label><br>
+                <label>
+                  <input type="radio" name="question1" value="0" id="q1a2">итератор
+                </label><br>
+                <label>
+                  <input type="radio" name="question1" value="1" id="q1a3">массив
+                </label><br>
+                <label>
+                  <input type="radio" name="question1" value="0" id="q1a4">алгоритм
+                </label><br>
+                <label>
+                  <input type="radio" name="question1" value="0" id="q1a5">адаптер
+                </label>
+              </div>
+
+            </fieldset>
+            <!--ЗАДАНИЕ 2--------------------------------------------------------------->
+            <fieldset class="fieldset1">
+              <p class="counter-group-ul">Задание 2. Выберите один правильный ответ.
+                <br>
+                Массив - это:
+              </p>
+              <div class="form">
+                <label>
+                  <input type="radio" name="question2" value="1" id="q2a1">группа последовательных ячеек памяти, имеющих
+                  один и тот же тип.
+                </label><br>
+                <label>
+                  <input type="radio" name="question2" value="0" id="q2a2">метод, который используется для установки
+                  цвета шрифта.
+                </label><br>
+                <label>
+                  <input type="radio" name="question2" value="0" id="q2a3">виджет, который мы используем, когда
+                  обрабатываем продолжительные задачи.
+                </label><br>
+                <label>
+                  <input type="radio" name="question2" value="0" id="q2a4">стандартное окно списка, позволяющего из него
+                  выбирать пункты.
+                </label><br>
+                <label>
+                  <input type="radio" name="question2" value="0" id="q2a5">средства доступа и навигации, например,
+                  Opera.
+                </label>
+              </div>
+            </fieldset>
+            <!--ЗАДАНИЕ 3--------------------------------------------------------------->
+            <fieldset class="fieldset1">
+              <p class="counter-group-ul">Задание 3. Выберите один правильный ответ.
+                <br>
+                При определении класса, кроме перечисления переменных-членов и прототипов функций-членов используются
+                ключевые слова, какие именно:
+              </p>
+              <div class="form">
+                <label>
+                  <input type="radio" name="question3" value="0" id="q3a1">Privat и Surface.
+                </label><br>
+                <label>
+                  <input type="radio" name="question3" value="1" id="q3a2">Private и Public.
+                </label><br>
+                <label>
+                  <input type="radio" name="question3" value="0" id="q3a3">Lens и Beam.
+                </label><br>
+                <label>
+                  <input type="radio" name="question3" value="0" id="q3a4">Все вышеперечисленные.
+                </label><br>
+                <label>
+                  <input type="radio" name="question3" value="0" id="q3a5">Ни один из ответов не является верным.
+                </label>
+              </div>
+            </fieldset>
+            <!--ЗАДАНИЕ 4--------------------------------------------------------------->
+            <fieldset class="fieldset1">
+              <p class="counter-group-ul">Задание 4. Выберите один правильный ответ.
+                <br>
+                Какой из перечисленных вариантов является protected:
+              </p>
+              <div class="form">
+                <label>
+                  <input type="radio" name="question4" value="0" id="q4a1">В этом случае наследник является подтипом и
+                  должен выполнять все обязательства родителя. Допустимо преобразование X* в Y*.
+                </label><br>
+                <label>
+                  <input type="radio" name="question4" value="1" id="q4a2">Наследуя структуру и поведение, наследник не
+                  будет подтипом. public и protected члены родителя станут protected членами наследника. Преобразование
+                  X* в Y* допустимо для членов и друзей и наследников X.
+                </label><br>
+                <label>
+                  <input type="radio" name="question4" value="0" id="q4a3">Наследуя структуру и поведение родителя,
+                  наследник не будет его подтипом. public и protected члены родителя станут private членами наследника.
+                  Преобразование X* в Y* допустимо для друзей и членов X . Последующее наследование не имеет смысла.
+                </label>
+
+              </div>
+            </fieldset>
+            <!--ЗАДАНИЕ 5--------------------------------------------------------------->
+            <fieldset class="fieldset1">
+              <p class="counter-group-ul">Задание 5. Выберите один правильный ответ.
+                <br>
+                Перегрузка - это:
+              </p>
+              <div class="form">
+                <label>
+                  <input type="radio" name="question5" value="1" id="q5a1">использование одного имени для функций,
+                  выполняющих действия с аргументами разных типов.
+                </label><br>
+                <label>
+                  <input type="radio" name="question5" value="0" id="q5a2">это возможность принимать множество форм,
+                  иметь разный смысл в зависимости от ситуации.
+                </label><br>
+                <label>
+                  <input type="radio" name="question5" value="0" id="q5a3">группа последовательных ячеек памяти, имеющих
+                  один и тот же тип.
+                </label><br>
+                <label>
+                  <input type="radio" name="question5" value="0" id="q5a4">возможность замещения методов объекта
+                  родителя методами объекта-потомка, имеющих то же имя.
+                </label><br>
+                <label>
+                  <input type="radio" name="question5" value="0" id="q5a5">метод, ссылка на который вычисляется на этапе
+                  выполнения программы.
+                </label>
+              </div>
+            </fieldset>
+
+
+            <div class="counter-group">
+              <input type="button" class="button-primary" value="Отправить" onClick="processForm(this.form)">
+            </div>
+          </form>
+        </div>
+        <!--ЧТОТО-->
+        <div id="results" style="display: none;">
+          Количество правильных ответов: <span id="score"></span>
+
+
+          <div id="1" style="display: none;">
+            <p>Ваша оценка: 1</p>
+          </div>
+
+          <div id="2" style="display: none;">
+            <p>Ваша оценка: 2</p>
+          </div>
+
+          <div id="3" style="display: none;">
+            <p>Ваша оценка: 3</p>
+          </div>
+
+
+          <div id="4" style="display: none;">
+            <p>Ваша оценка: 4</p>
+          </div>
+
+          <div id="5" style="display: none;">
+            <p>Ваша оценка: 5</p>
+          </div>
+
+          <hr />
+          <p>Спасибо за участие в тестировании</p>
+          <input type="button" class="button-primary" value="Начать заново" onClick="resetTest()" />
+        </div>
+
+      </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: local("BebasNeueRegular"),
+    url("../fonts/BebasNeueRegular.woff2") format("woff2"),
+    url("../fonts/BebasNeueRegular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.header {
+  background-color: #635854;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 4px solid #3596f5;
+}
+.navbar {
+  max-width: 1280px;
+  margin: auto;
+  display: flex; /*сделали блок гибким*/
+  justify-content: space-between; /*расставили элементы по краям*/
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 60px;
+  color: #fff;
+  font-family: "Bebas Neue Regular", sans-serif;
+}
+
+.navbar-contacts {
+  text-align: right;
+}
+.navbar-text {
+  display: block;
+  color: #fff;
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 16px;
+}
+.navbar-phone {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*ОСНОВНАЯ ЧАСТЬ----------------------------------------------------*/
+.main {
+  max-width: 1280px;
+  margin: auto;
+  padding-top: 54px;
+  display: flex;
+}
+.main-info {
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  line-height: 46px;
+}
+.main-title {
+  margin: 0 0 4% 0;
+  font-family: "Bebas Neue Regular", sans-serif;
+  font-weight: normal;
+  font-size: 47px;
+  line-height: 44px;
+  color: #635854;
+}
+
+.main-title1 {
+  margin: 4% 0 0 0;
+  font-family: "Bebas Neue Regular", sans-serif;
+  font-weight: normal;
+  font-size: 47px;
+  line-height: 44px;
+  color: #635854;
+}
+.lesson {
+  margin: 7% 0 0 0;
+  font-family: "Bebas Neue Regular", sans-serif;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 60px;
+  color: #000000;
+}
+.button-primary {
+  background: #3596f5;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  cursor: pointer;
+}
+.counter-group-ul {
+  flex-direction: column;
+  text-align: left;
+  font-size: 24px;
+  line-height: 46px;
+}
+.form {
+  flex-direction: column;
+  text-align: left;
+  font-size: 24px;
+  line-height: 46px;
+}
+.fieldset1 {
+  flex-direction: column;
+  text-align: left;
+  font-size: 24px;
+  line-height: 46px;
+  margin: 10px;
+}
+/*АНКЕТА------------------------------------------------------------*/
+
+span {
+  color: #c00303;
+}
+.pole {
+  border-radius: 10px;
+  border: 0px solid #36383b;
+  outline: none;
+
+  font-family: "Bebas Neue Regular", sans-serif;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 50px;
+  color: #000000;
+}
+.pole:focus {
+  border: 1px solid #36383b;
+}
+label {
+  font-family: "Bebas Neue Regular", sans-serif;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 50px;
+  color: #000000;
+}

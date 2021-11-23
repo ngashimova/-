@@ -1,0 +1,179 @@
+<head>
+    <script type="text/javascript">
+    function showById(id, visible) {
+    document.getElementById(id).style.display =
+    visible ? 'block' : 'none'
+    }
+    function processForm(f) {
+    var i, s='', el
+    var questions = new Object()
+    var answers = new Object()
+    for (i=0; i<f.length; i++) {
+    el = f.elements[i]
+    if (el.type=='radio' && el.name.indexOf('question')==0) {
+    questions[el.name] = 0
+    if (el.checked)
+    answers[el.name] = parseInt(el.value)
+    }
+    }
+    var asked = 0, answered = 0, score = 0
+    for (i in questions) asked++
+    for (i in answers) {
+    answered++
+    score += answers[i]
+    }
+    if (answered < asked) {
+    alert('Вы ответили на '+answered+' вопросов из '+asked+'. Для получения достоверного результата нужно ответить на все воросы')
+    }
+    else {
+    showById('questionsForm', false)
+    el = document.getElementById('score')
+    el.innerHTML = (score>0) ? ' '+score : score
+    showById('results', true)
+    if (score == 0)
+    showById('1', true)
+    else if (score == 1)
+    showById('2', true)
+    else if (score == 2)
+    showById('2', true)
+    else if (score == 3)
+    showById('3', true)
+    else if (score == 4)
+    showById('4', true)	
+    else if (score == 5)
+    showById('5', true)	
+    
+    }
+    }
+    function resetTest() {
+    showById('results', false)
+    showById('questionsForm', true)
+    document.forms['opros'].reset()
+    }
+    </script>
+    </head>
+    <body>
+    <br>
+    
+    <br>
+
+    <!--форма-->
+    <div id="questionsForm">
+    <form name="opros">
+    <p/>
+    <strong>Вопрос:</strong> <font color="#0000FF">Какое слово указывает на неопределённую форму глагола?</font>
+    <br/><br/>
+    <input type="radio" name="question1" value="0" id="q1a1"/><label for="q1a1">1. too</label>
+    <br/>
+    <input type="radio" name="question1" value="0" id="q1a2"/><label for="q1a2">2. be</label>
+    <br/>
+    <input type="radio" name="question1" value="1" id="q1a3"/><label for="q1a3">3. to</label>
+    <br/>
+    <input type="radio" name="question1" value="0" id="q1a4"/><label for="q1a4">4. are</label>
+    <br/><br/>
+    <strong><font color="#FF0000">2.</font> Вопрос:</strong> <font color="#0000FF">Какая форма глагола <strong>to be</strong> указывает на 3 лицо единственного числа?</font>
+    <br/>
+    <br/>
+    <input type="radio" name="question2" value="0" id="q2a1"/><label for="q2a1">1. am</label>
+    <br/>
+    <input type="radio" name="question2" value="1" id="q2a2"/><label for="q2a2">2. is</label>
+    <br/>
+    <input type="radio" name="question2" value="0" id="q2a3"/><label for="q2a3">3. as</label>
+    <br/>
+    <input type="radio" name="question2" value="0" id="q2a4"/><label for="q2a4">4. has</label>
+    <br/><br/>
+    <strong><font color="#FF0000">3.</font> Вопрос:</strong> <font color="#0000FF">Отрицательная форма инфинитива: Какой вариант правильный?</font>
+    <br/><br/>
+    <input type="radio" name="question3" value="0" id="q3a1"/><label for="q3a1">1. will not</label>
+    <br/>
+    <input type="radio" name="question3" value="0" id="q3a2"/><label for="q3a2">2. to not have</label>
+    <br/>
+    <input type="radio" name="question3" value="0" id="q3a3"/><label for="q3a3">3. are not</label>
+    <br/>
+    <input type="radio" name="question3" value="1" id="q3a4"/><label for="q3a4">4. not to have</label>
+    <br/><br/>
+    <strong><font color="#FF0000">4.</font> Вопрос:</strong> <font color="#0000FF">Сокращённая форма <strong>to be</strong>: Какой вариант правильный?</font>
+    <br/>
+    <br/>
+    <input type="radio" name="question4" value="0" id="q4a1"/><label for="q4a1">1. I haven’t English.</label>
+    <br/>
+    <input type="radio" name="question4" value="0" id="q4a2"/><label for="q4a2">2. I amn’t English.</label>
+    <br/>
+    <input type="radio" name="question4" value="1" id="q4a3"/><label for="q4a3">3. I’m not English</label>
+    <br/>
+    <input type="radio" name="question4" value="0" id="q4a4"/><label for="q4a4">4. I isn’t English.</label>
+    <br/><br/>
+    <strong><font color="#FF0000">5.</font> Вопрос:</strong> <font color="#0000FF">Усилительный глагол для <strong>to have</strong>: Какой вариант правильный?</font>
+    <br/>
+    <br/>
+    <input type="radio" name="question5" value="1" id="q5a1"/><label for="q5a1">1. got</label>
+    <br/>
+    <input type="radio" name="question5" value="0" id="q5a2"/><label for="q5a2">2. had</label>
+    <br/>
+    <input type="radio" name="question5" value="0" id="q5a3"/><label for="q5a3">3. will</label>
+    <br/>
+    <input type="radio" name="question5" value="0" id="q5a4"/><label for="q5a4">4. am</label>
+    <br/><br/>
+    
+    <br/><br/>
+    <input type="button" value="Отправить" onClick="processForm(this.form)"/>
+    <input type="reset" value="Очистить"></input>
+    </form>
+    </div>
+    <hr/>
+    <div id="results" style="display: none;">
+    Количество правильных ответов: <span id="score"></span>
+    <div id="1-" style="display: none;">
+    <p>Ваша оценка: 1-</p>
+    </div>
+    <div id="1-" style="display: none;">
+    <p>Ваша оценка: 1-</p>
+    </div>
+    <div id="1" style="display: none;">
+    <p>Ваша оценка: 1</p>
+    </div>
+    <div id="1+" style="display: none;">
+    <p>Ваша оценка: 1+</p>
+    </div>
+    <div id="2-" style="display: none;">
+    <p>Ваша оценка: 2-</p>
+    </div>
+    <div id="2" style="display: none;">
+    <p>Ваша оценка: 2</p>
+    </div>
+    <div id="2+" style="display: none;">
+    <p>Ваша оценка: 2+</p>
+    </div>
+    <div id="3-" style="display: none;">
+    <p>Ваша оценка: 3-</p>
+    </div>
+    <div id="3" style="display: none;">
+    <p>Ваша оценка: 3</p>
+    </div>
+    <div id="3+" style="display: none;">
+    <p>Ваша оценка: 3+</p>
+    </div>
+    <div id="4-" style="display: none;">
+    <p>Ваша оценка: 4-</p>
+    </div>
+    <div id="4" style="display: none;">
+    <p>Ваша оценка: 4</p>
+    </div>
+    <div id="4+" style="display: none;">
+    <p>Ваша оценка: 4+</p>
+    </div>
+    <div id="5-" style="display: none;">
+    <p>Ваша оценка: 5-</p>
+    </div>
+    <div id="5" style="display: none;">
+    <p>Ваша оценка: 5</p>
+    </div>
+    <div id="5+" style="display: none;">
+    <p>Ваша оценка: 5+</p>
+    </div>
+    <hr/>
+    <p>Спасибо за участие в тестировании</p>
+    <input type="button" value="Начать заново" onClick="resetTest()"/>
+    </div>
+    <br><br>
+    </body>

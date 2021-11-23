@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовая работа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!---------------------------------------------------------------------------------------------------------->
+  <header class="header">
+      <div class="navbar">
+          <a href="index.html" class="logo">Дистанционное обучение</a>
+          <div class="navbar-contacts"><!--номер телефона-->
+              <span class="navbar-text">Закажите звонок: </span>
+              <a class="navbar-phone" href="tel:+78431234567">8 (843) 123-45-67</a>
+          </div>
+      </div>
+  </header>
+<!------------------------------------------------------------------------------------------------------------------------------>
+  <!--АНКЕТА--------------------------------------------------------------------------------->
+  <main class="main">
+
+    <div class="main-info">
+        <h2 class="main-title">Анкета</h2>
+
+        <div class="counter-group">
+            <form name="contact_form" method="post" action="dumb.htm" onsubmit="return validate_form ( );">
+        
+                <fieldset class="fieldset1">
+           
+            <label>Фамилия<span>* </span></label><input type="text" class="pole"  id="name" name="contact_fname" placeholder="Иванов"><p></p>
+              <label>Имя<span>* </span></label><input type="text"  class="pole" name="contact_name" placeholder="Иван" ><br><p></p>
+              <label>Отчество </label><input type="text" class="pole"  placeholder="Иванович"><br><p></p>
+              <label>Телефон </label><input type="tel" class="pole" placeholder="+7 (999) 999 99 99" id="phone" name="phone"/><br><p></p>
+              <label>Электронная почта </label><input type="email" placeholder="n.gashimova@gmail.com" id="email"  class="pole" name="email"/><br><p></p>      
+             
+      
+</fieldset>
+<a href="les1.html" class="lesson">
+    <button  type="submit" class="button-primary" >Отправить анкету</button>
+    </a>
+</form> 
+        </div>
+    </div>
+  </main>
+ 
+
+  <script  type="text/javascript">
+    function validate_form ( )
+ {
+     valid = true;
+ 
+         if ( document.contact_form.contact_fname.value == "" )
+         {
+                 alert ( "Пожалуйста заполните поле 'Фамилия'." );
+                 valid = false;
+         }
+         if ( document.contact_form.contact_name.value == "" )
+         {
+                 alert ( "Пожалуйста заполните поле 'Имя'." );
+                 valid = false;
+         }
+        
+         return ;
+ }
+     
+ </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
